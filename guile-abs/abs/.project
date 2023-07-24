@@ -1,0 +1,22 @@
+# Gambas Project File 3.0
+Title=guile-abs
+Startup=Main
+Version=0.0.1
+TabSize=2
+Translate=1
+Language=en_US
+Maintainer=admin
+Address=admin@pop-os
+Url=http://www.gnu.org
+License=General Public License
+PackageName=abs-0.0.1
+MimeTypes="admin"
+RuntimeVersion="3.16"
+Packager=1
+Systems=autotools,ubuntu
+SameFiles=1
+Groups=debian:"editors"
+Menus=ubuntu:"Applications/System/Administration"
+Categories=ubuntu:"System"
+Groups=ubuntu:"admin"
+ExtraDependencies=*:"\t\t"

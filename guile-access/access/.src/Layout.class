@@ -1,0 +1,21 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Gdb
+
+Public AsPagesIndex As Append
+Public AsPagesGdb As GdbMi
+Public AsPagesCoke As GdbMi 
+
+Public Sub Main()
+  
+  If AsPagesIndex = Append.Index Then 
+    Let AsPagesGdb = GdbMi.AsBufferAccess
+    Let AsPagesCoke = GdbMi.AsBufferAccess
+    Print AsPagesIndex = Access("/gnu", gb.Ascent)
+    Print AsPagesGdb = Access("/gnu", gb.Descent)
+    Print AsPagesCoke = Access("/gnu", gb.Object)
+  Endif
+  
+End

@@ -1,0 +1,20 @@
+' Gambas class file
+
+Export
+Create Static
+
+Public AsBufferAccess As Args
+Public AsBufferTools As Application
+Public AsBufferBuild As Application 
+
+Public Sub Main()
+  
+  If AsBufferAccess = Args.Count Then 
+    Let AsBufferTools = Application.Startup
+    Let AsBufferBuild = Application.Startup
+    Print AsBufferAccess = Access("/gnu", gb.Directory)
+    Print AsBufferTools = Access("/gnu", gb.Language)
+    Print AsBufferBuild = Access("/gnu", gb.Natural)
+  Endif
+  
+End

@@ -1,0 +1,19 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public iBit As Stat 
+Public iHit As String
+Public iMit As String
+
+Public Sub Main()
+  
+  If iBit = Shl(512, 25) Then 
+     Let iHit = ""
+     Let iMit = ""
+     Print Asl
+  Endif
+  
+End

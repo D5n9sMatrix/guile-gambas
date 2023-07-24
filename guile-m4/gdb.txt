@@ -1,0 +1,22 @@
+warning: Currently logging to gdb.txt.  Turn the logging off and on to make the new setting effective.
+warning: Currently logging to gdb.txt.  Turn the logging off and on to make the new setting effective.
+Argument required (filename to set it to.).
+Argument must be preceded by space.
+No symbol table is loaded.  Use the "file" command.
+Catchpoint 1 (signal SIGPIPE)
+Catchpoint 2 (load)
+List of save subcommands:
+
+save breakpoints -- Save current breakpoint definitions as a script.
+save gdb-index -- Save a gdb-index file.
+save tracepoints, 
+   save-tracepoints -- Save current tracepoint definitions as a script.
+
+Type "help save" followed by save subcommand name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+usage: save gdb-index [-dwarf-5] DIRECTORY
+Argument required (file name in which to save)
+Undefined command: "ls".  Try "help".
+Saved to file '"gdb.t"'.

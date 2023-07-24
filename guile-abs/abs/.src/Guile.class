@@ -1,0 +1,20 @@
+' Gambas class file
+
+Export
+Create Static
+
+Public Guile As Application
+Public Abs As Application
+Public iCount As Args
+Public iEvent As Args
+
+
+Public Sub Main()
+  
+  Let Guile = New Abs 
+  
+  If Guile = iCount.Count & iEvent Then 
+     Print Abs(2.5)
+  Endif
+  
+End

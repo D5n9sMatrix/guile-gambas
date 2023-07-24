@@ -1,0 +1,19 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public Path As Array
+Public Mode As Args
+Public Value As Boolean
+
+Public Sub Main()
+  
+  If Path = gb.Directory Then 
+      Let Path = New Mode
+      Let Value = True
+  Endif
+  
+End
+

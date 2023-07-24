@@ -1,0 +1,25 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public AsMinBuffer As Append
+Public AsMinGdb As Array
+Public AsMinType As Args
+
+
+Public Sub Main()
+  
+  If AsMinBuffer = Append.AsBufferAccess Then 
+    Let AsMinGdb = Array[1, 2, 3]
+    Let AsMinType = Args.Count
+    Print AsMinBuffer = Access("/gnu", gb.Currency)
+    Print AsMinGdb = Access("/gnu", gb.Input)
+    Print AsMinType = Access("/gnu", gb.Like)
+  Endif
+  
+End
+
+
+ 

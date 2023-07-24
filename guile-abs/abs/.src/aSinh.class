@@ -1,0 +1,19 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public hyperbolic As ASinh
+Public ARCSine As Array
+Public Gateway As Array
+
+Public Sub Main()
+  
+  If hyperbolic = 512 Then 
+    Let ARCSine = New Components
+    Let Gateway = New Components
+    Print ASinh(2)
+  Endif
+  
+End

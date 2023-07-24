@@ -1,0 +1,197 @@
+;; abs.scm
+
+;; 6.6.2.11 Arithmetic Functions
+
+;; The C arithmetic functions below always takes two arguments, while the Scheme functions can take an arbitrary number. When you need to invoke them with just one argument, for example to compute the equivalent of (- x), pass SCM_UNDEFINED as the second one: scm_difference (x, SCM_UNDEFINED).
+
+
+;; Return the sum of all parameter values. Return 0 if called without any parameters.
+
+(define scm_sum '(z1, z2))
+
+
+;; 
+;; Scheme Procedure: - z1 z2 …
+;; C Function: scm_difference (z1, z2)
+
+;;    If called with one argument z1, -z1 is returned. Otherwise the sum of all but the first argument are subtracted from the first argument. 
+
+scm_sum (+ 27, 22)
+
+
+;; Scheme Procedure: * z1 …
+;; C Function: scm_product (z1, z2)
+
+;;    Return the product of all arguments. If called without arguments, 1 is returned. 
+
+(define scm_product '(z1, z2))
+
+
+
+;; Scheme Procedure: / z1 z2 …
+;; C Function: scm_divide (z1, z2)
+
+;;    Divide the first argument by the product of the remaining arguments. If called with one argument z1, 1/z1 is returned.
+
+scm_product (/ 27 22)
+
+
+;; Scheme Procedure: 1+ z
+;; C Function: scm_oneplus (z)
+
+;;     Return z + 1. 
+
+;; Scheme Procedure: 1- z
+;; C function: scm_oneminus (z)
+
+;;    Return z - 1. 
+
+;; Scheme Procedure: abs x
+;; C Function: scm_abs (x)
+
+;;    Return the absolute value of x.
+
+;; x must be a number with zero imaginary part. To calculate the magnitude of a complex number, use magnitude instead.
+
+(define scm_abs '(x))
+
+;; full 
+scm_abs 512
+
+
+; Scheme Procedure: max x1 x2 …
+; C Function: scm_max (x1, x2)
+
+;    Return the maximum of all parameter values.
+
+
+(define scm_max '(x1, x2))
+
+;; bar bar
+scm_max (+ 10 20)
+
+
+
+;; Scheme Procedure: min x1 x2 …
+;; C Function: scm_min (x1, x2)
+
+;; Return the minimum of all parameter values.
+
+(define scm_min '(x1, x2))
+
+scm_min (+ 10 0)
+
+
+
+;; Scheme Procedure: euclidean/ x y
+;; Scheme Procedure: euclidean-quotient x y
+;; Scheme Procedure: euclidean-remainder x y
+;; C Function: void scm_euclidean_divide (SCM x, SCM y, SCM *q, SCM *r)
+;; C Function: SCM scm_euclidean_quotient (SCM x, SCM y)
+;; C Function: SCM scm_euclidean_remainder (SCM x, SCM y)
+
+;;    These procedures accept two real numbers x and y, where the divisor y must be non-zero. euclidean-quotient returns the integer q and euclidean-remainder returns the real number r such that x = q*y + r and 0 <= r < |y|. euclidean/ returns both q and r, and is more efficient than computing each separately. Note that when y > 0, euclidean-quotient returns floor(x/y), otherwise it returns ceiling(x/y).
+
+;;    Note that these operators are equivalent to the R6RS operators div, mod, and div-and-mod.
+
+    (euclidean-quotient 123 10) ⇒ 12
+    (euclidean-remainder 123 10) ;; ⇒ 3
+    (euclidean/ 123 10) ;; ⇒ 12 and 3
+    (euclidean/ 123 -10) ;; ⇒ -12 and 3
+    (euclidean/ -123 10) ;; ⇒ -13 and 7
+    (euclidean/ -123 -10) ;; ⇒ 13 and 7
+    (euclidean/ -123.2 -63.5) ;; ⇒ 2.0 and 3.8
+    (euclidean/ 16/3 -10/7) ;; ⇒ -3 and 22/21
+
+
+; Scheme Procedure: floor/ x y
+; Scheme Procedure: floor-quotient x y
+; Scheme Procedure: floor-remainder x y
+; C Function: void scm_floor_divide (SCM x, SCM y, SCM *q, SCM *r)
+; C Function: SCM scm_floor_quotient (x, y)
+; C Function: SCM scm_floor_remainder (x, y)
+
+;    These procedures accept two real numbers x and y, where the divisor y must be non-zero. floor-quotient returns the integer q and floor-remainder returns the real number r such that q = floor(x/y) and x = q*y + r. floor/ returns both q and r, and is more efficient than computing each separately. Note that r, if non-zero, will have the same sign as y.
+
+;    When x and y are integers, floor-remainder is equivalent to the R5RS integer-only operator modulo.
+
+    (floor-quotient 123 10) ;; ⇒ 12
+    (floor-remainder 123 10) ;; ⇒ 3
+    (floor/ 123 10) ;; ⇒ 12 and 3
+    (floor/ 123 -10) ;; ⇒ -13 and -7
+    (floor/ -123 10) ;; ⇒ -13 and 7
+    (floor/ -123 -10) ;; ⇒ 12 and -3
+    (floor/ -123.2 -63.5) ;; ⇒ 1.0 and -59.7
+    (floor/ 16/3 -10/7) ;; ⇒ -4 and -8/21
+
+
+;; Scheme Procedure: truncate/ x y
+;; Scheme Procedure: truncate-quotient x y
+;; Scheme Procedure: truncate-remainder x y
+;; C Function: void scm_truncate_divide (SCM x, SCM y, SCM *q, SCM *r)
+;; C Function: SCM scm_truncate_quotient (x, y)
+;; C Function: SCM scm_truncate_remainder (x, y)
+
+;;    These procedures accept two real numbers x and y, where the divisor y must be non-zero. truncate-quotient returns the integer q and truncate-remainder returns the real number r such that q is x/y rounded toward zero, and x = q*y + r. truncate/ returns both q and r, and is more efficient than computing each separately. Note that r, if non-zero, will have the same sign as x.
+
+;;    When x and y are integers, these operators are equivalent to the R5RS integer-only operators quotient and remainder.
+
+    (truncate-quotient 123 10) ;; ⇒ 12
+    (truncate-remainder 123 10) ;; ⇒ 3
+    (truncate/ 123 10) ;; ⇒ 12 and 3
+    (truncate/ 123 -10) ;; ⇒ -12 and 3
+    (truncate/ -123 10) ;; ⇒ -12 and -3
+    (truncate/ -123 -10) ;; ⇒ 12 and -3
+    (truncate/ -123.2 -63.5) ;; ⇒ 1.0 and -59.7
+    (truncate/ 16/3 -10/7) ;; ⇒ -3 and 22/21
+
+
+;; Scheme Procedure: centered/ x y
+;; Scheme Procedure: centered-quotient x y
+;; Scheme Procedure: centered-remainder x y
+;; C Function: void scm_centered_divide (SCM x, SCM y, SCM *q, SCM *r)
+;; C Function: SCM scm_centered_quotient (SCM x, SCM y)
+;; C Function: SCM scm_centered_remainder (SCM x, SCM y)
+
+;;    These procedures accept two real numbers x and y, where the divisor y must be non-zero. centered-quotient returns the integer q and centered-remainder returns the real number r such that x = q*y + r and -|y/2| <= r < |y/2|. centered/ returns both q and r, and is more efficient than computing each separately.
+
+;;    Note that centered-quotient returns x/y rounded to the nearest integer. When x/y lies exactly half-way between two integers, the tie is broken according to the sign of y. If y > 0, ties are rounded toward positive infinity, otherwise they are rounded toward negative infinity. This is a consequence of the requirement that -|y/2| <= r < |y/2|.
+
+;;    Note that these operators are equivalent to the R6RS operators div0, mod0, and div0-and-mod0.
+
+    (centered-quotient 123 10) ;; ⇒ 12
+    (centered-remainder 123 10) ;; ⇒ 3
+    (centered/ 123 10) ;; ⇒ 12 and 3
+    (centered/ 123 -10) ;; ⇒ -12 and 3
+    (centered/ -123 10) ;; ⇒ -12 and -3
+    (centered/ -123 -10) ;; ⇒ 12 and -3
+    (centered/ 125 10) ;; ⇒ 13 and -5
+    (centered/ 127 10) ;; ⇒ 13 and -3
+    (centered/ 135 10) ;; ⇒ 14 and -5
+    (centered/ -123.2 -63.5) ;; ⇒ 2.0 and 3.8
+    (centered/ 16/3 -10/7) ;; ⇒ -4 and -8/21
+
+
+;; Scheme Procedure: round/ x y
+;; Scheme Procedure: round-quotient x y
+;; Scheme Procedure: round-remainder x y
+;; C Function: void scm_round_divide (SCM x, SCM y, SCM *q, SCM *r)
+;; C Function: SCM scm_round_quotient (x, y)
+;; C Function: SCM scm_round_remainder (x, y)
+
+;;    These procedures accept two real numbers x and y, where the divisor y must be non-zero. round-quotient returns the integer q and round-remainder returns the real number r such that x = q*y + r and q is x/y rounded to the nearest integer, with ties going to the nearest even integer. round/ returns both q and r, and is more efficient than computing each separately.
+
+;;    Note that round/ and centered/ are almost equivalent, but their behavior differs when x/y lies exactly half-way between two integers. In this case, round/ chooses the nearest even integer, whereas centered/ chooses in such a way to satisfy the constraint -|y/2| <= r < |y/2|, which is stronger than the corresponding constraint for round/, -|y/2| <= r <= |y/2|. In particular, when x and y are integers, the number of possible remainders returned by centered/ is |y|, whereas the number of possible remainders returned by round/ is |y|+1 when y is even.
+
+    (round-quotient 123 10) ;; ⇒ 12
+    (round-remainder 123 10) ;; ⇒ 3
+    (round/ 123 10) ;; ⇒ 12 and 3
+    (round/ 123 -10) ;; ⇒ -12 and 3
+    (round/ -123 10) ;; ⇒ -12 and -3
+    (round/ -123 -10) ;; ⇒ 12 and -3
+    (round/ 125 10) ;; ⇒ 12 and 5
+    (round/ 127 10) ;; ⇒ 13 and -3
+    (round/ 135 10) ;; ⇒ 14 and -5
+    (round/ -123.2 -63.5) ;; ⇒ 2.0 and 3.8
+    (round/ 16/3 -10/7) ;; ⇒ -4 and -8/21
+

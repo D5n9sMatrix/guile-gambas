@@ -1,0 +1,20 @@
+# Gambas Project File 3.0
+Title=guile-access
+Startup=Main
+Version=0.0.1
+TabSize=2
+Translate=1
+Language=en_US
+Maintainer=admin
+Address=admin@pop-os
+Url=https://www.sourceware.org/gdb/
+License=General Public License
+PackageName=access-0.0.1
+MimeTypes="config"
+RuntimeVersion="3.16"
+Packager=1
+Systems=autotools,ubuntu
+SameDependencies=1
+SameFiles=1
+Menus=ubuntu:"Applications/Programming"
+Groups=ubuntu:"debug"

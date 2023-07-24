@@ -1,0 +1,21 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public Nun As Float
+Public Msg As Observer
+Public Asn As Observer
+
+
+Public Sub Main()
+  
+  If Nun = 25 Then
+     Let Msg = New Observer
+     Let Asn = New Observer
+     Print Asn(-1)
+  Endif  
+    
+  
+End

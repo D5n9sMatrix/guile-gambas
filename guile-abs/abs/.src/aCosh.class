@@ -1,0 +1,21 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public Val As Float
+Public Hyper As Array
+Public Num As Array
+
+Public Sub Main()
+  
+  If Val = 25.1 Then 
+    Let Hyper = New Array
+    Let Num.Max = New Array
+    Print ACosh(2)
+  Endif
+  
+End
+
+

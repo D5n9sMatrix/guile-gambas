@@ -1,0 +1,21 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public iNunBit As Stat
+Public iNumBit As String
+Public iNucBit As Args
+
+Public Sub Main()
+  
+  If iNunBit.Auth = 0 Then 
+    Let iNumBit = New Array
+    Let iNucBit = New Array
+    Print Asr
+  Endif   
+  
+End
+
+

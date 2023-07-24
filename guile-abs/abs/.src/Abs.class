@@ -1,0 +1,20 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+
+Public Sub Main()
+  
+  Dim iCount As Args
+  Dim iEvent As Args
+  
+  Let iCount = New Abs
+  Let iEvent = New Abs
+  
+  If iCount = iEvent.Max Then 
+    Print Abs(2.5)
+  Endif
+  
+End

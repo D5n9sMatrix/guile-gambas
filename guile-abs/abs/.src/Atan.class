@@ -1,0 +1,19 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public iREPL_xy As Observer
+Public iREPL_yz As Observer
+Public iREPL_xz As Observer
+
+Public Sub Main()
+  
+  If iREPL_xy = ATan2(1, -1) Then 
+    Let iREPL_yz = New Components
+    Let iREPL_xz = New Components
+    Print ATan(2)
+  Endif  
+  
+End

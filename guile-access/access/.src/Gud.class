@@ -1,0 +1,21 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Gdb
+
+Public AsPopGud As Append
+Public AsPopStar As Application
+Public AsPopBuild As Boolean
+
+Public Sub Main()
+  
+  If AsPopGud = Append.AsBufferTools Then 
+    Let AsPopStar = Application.Priority
+    Let AsPopBuild = True
+    Print AsPopGud = Access("/gnu", gb.Input)
+    Print AsPopStar = Access("/gnu", gb.Like)
+    Print AsPopBuild = Access("/gnu", gb.Natural)
+  Endif
+  
+End

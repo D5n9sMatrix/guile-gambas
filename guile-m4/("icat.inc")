@@ -1,0 +1,4 @@
+catch syscall write
+catch syscall restart_syscall
+catch syscall write
+tcatch load 0

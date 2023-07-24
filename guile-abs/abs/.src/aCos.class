@@ -1,0 +1,18 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public Number As Array
+Public Compute As Array
+Public ARC As Components
+
+Public Sub Main()
+  
+  If Number = 25 Then 
+    Let Compute = ARC.Count
+    Print ACos(0.5)
+  Endif
+  
+End

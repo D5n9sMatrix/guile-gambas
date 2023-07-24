@@ -1,0 +1,22 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Guile
+
+Public Index As Append
+Public Matching As Array
+Public Values As Array
+
+Public Sub Main()
+  
+   If Index = Append.AsBufferAccess Then
+      Let Matching = Array[1, 2, 3]
+      Let Values = Array[1, 2, 3]
+      Print Index.AsBufferAccess = Access("/gnu", gb.Boolean)
+      Print Matching.Count = Access("/gnu", gb.Boolean)
+      Print Values = Access("/gnu", gb.Boolean)
+   Endif    
+     
+  
+End

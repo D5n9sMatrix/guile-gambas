@@ -1,0 +1,21 @@
+' Gambas class file
+
+Export
+Create Static
+Inherits Gdb
+
+Public AsBarnAccess As Append
+Public AsBarnTools As Application
+Public AsBarnBuild As Components
+
+Public Sub Main()
+  
+  If AsBarnAccess = Append.AsBufferBuild Then 
+    Let AsBarnTools = Application.Handle
+    Let AsBarnBuild = Components.Count    
+  Endif
+  
+End
+
+
+ 
